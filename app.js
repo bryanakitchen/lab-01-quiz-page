@@ -39,6 +39,18 @@ button.addEventListener('click', () => {
 
     const thePercent = Math.round((correctAnswers / 3) * 100); 
 
-    results.textContent = `${userName}, you got ${correctAnswers} out of 3 correct, which is ${thePercent}%!`;
+    
+    if (correctAnswers === 3) {
+        results.style.background = 'green';
+        results.textContent = `${userName}, you got ${correctAnswers} out of 3 correct, which is ${thePercent}%! Are you two best friends or was that just luck?`;
+
+    } else if (correctAnswers <= 1) {
+        results.style.background = 'red';
+        results.textContent = `${userName}, you got ${correctAnswers} out of 3 correct, which is ${thePercent}%! You should get to know Bryana a little more.`;
+
+    } else {
+        results.style.background = 'yellow';
+        results.textContent = `Not bad, ${userName}. You got ${correctAnswers} out of 3 correct, which is ${thePercent}%!`;
+    }
 
 });
